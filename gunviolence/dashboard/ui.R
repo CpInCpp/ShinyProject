@@ -17,9 +17,9 @@ shinyUI(
       ),
         
     
-  dashboardBody(titlePanel('A Brief Look At Gunviolence'),
+  dashboardBody(
     tabItems(
-      tabItem(tabName = 'intro',
+      tabItem(tabName = 'intro',titlePanel('A Brief Look At Gunviolence'),
               box(introstring),style = "font-family: 'Ariel', sans-serif;
         font-weight: 500; line-height: 1.1; 
               color: #4d3a7d;"),
@@ -63,7 +63,7 @@ shinyUI(
                   
                 ),
               mainPanel(
-                fluidRow(box(plotlyOutput("plot2"), width = 12))
+                box(plotlyOutput("plot2", height = 500, width = 500), width = 8)
                 
                 )
               )),
@@ -78,7 +78,8 @@ shinyUI(
                        box(DT::dataTableOutput("table_mass"),
                            width = 12))
               )
+      )
       
     )
   )
-))
+)

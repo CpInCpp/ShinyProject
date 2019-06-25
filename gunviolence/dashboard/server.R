@@ -20,25 +20,7 @@ shinyServer(function(input, output, session){
     
   })
   
-  # Geompie <- reactive({
-  #   geom_bar(width = 1, stat = 'identity')+
-  #     coord_polar("y", start=0)+
-  #     scale_fill_brewer(palette="Blues")+
-  #     theme_minimal()
-  # })
-  
-
-   # updateSelectizeInput(
-   #   session, "stat_selected_2")
-   # 
-   # 
-   # observe({
-   #   stat_selected_1 <- input
-   #  updateSelectizeInput(
-   #     session, "stat_selected_1")
-   # })
-
-  # show map using googleVis
+ 
   output$map <- renderGvis({
     gvisGeoChart(df_stat, "state", input$selected,
                  options=list(region="US", displayMode="regions",
