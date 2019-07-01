@@ -4,20 +4,14 @@
 
 # changes to be made:
 #   
-# update the titles on the charts so that they do not reflect the variable names.
-# 
-# update the selectize inputs so that they also do not reflect the variable names.
-# 
-# Change the pie charts to bar charts.  Pie charts suck.
-# 
-# format the correlation plot so that it is square.  also, try normalizing the data to see how it looks.
-# 
-# Format each page.  The fluid row system needs to be better implemented.
-# 
-# add summary stats to the top part of the map page.
-# 
-# format column widths on the data tables
+# The numbers on the map page are wonky.  They are correct, but they are so small in value, 
+# they are not being displayed.
 #
+# try normalizing the data to see how it looks.
+# 
+# Format each intro page.
+# Format bio page.
+# 
 # Write a better introduction, and include a bio-page at the end with a github link.
 
 # Libraries ###############################################################
