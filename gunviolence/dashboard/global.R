@@ -32,16 +32,28 @@ library(DT)
 
 # Data Frames ####
 # incidents ##################################################################
-df_stat = read.csv('IncRaceStateIncome.csv', stringsAsFactors = F)
+df_stat = read.csv('IncRegMedVotes.csv', stringsAsFactors = F)
+#normalize the incidents_per_pop
+tester = df_stat %>% 
+  mutate(., norm_inc_per_pop = incidents_per_pop/sum(incidents_per_pop))
 
 
-map_selector_choices = c("num_regulations", "number_of_incidents", "incidents_per_pop" )
+choice1 = c("Number of regulations" = "num_regulations", 
+                         "Number of incidents" = "incidents_per_pop")
+corrplot_choices = c("Number of regulations" = "num_regulations", 
+                     "Number of incidents" = "num_incidents", 
+                     "Median Household Income" = "med_household_income", 
+                     "Vote Percentage: Donald Trump" = "donald_trump", 
+                     "Vote Percentage: Hillary Clinton" = "hillary_clinton")
 
-choice = colnames(df_stat)[-1]
-choice1 = c("num_regulations", "number_of_incidents", "incidents_per_pop" )
+
   #colnames(df_stat)[colnames(df_stat) %in% map_selector_choices]
 
-
+# function to remap choices
+# RemapChoice = function(){
+#   
+#   return (ifelse(input$selected == 'incidents_per_pop', 'num_incidents', input$selected))
+# }
 
 # Mass shooting #############################################################
 
@@ -68,7 +80,19 @@ rem_col = which(colnames(mass) %in% c('Incident.Area', 'Open.Close.Location', 'E
 mass_columns = colnames(mass)[-rem_col]
 
 
-introstring = "Gun Violence and gun control have been topics of heated debate for a long time, now.  America is a minority in the group of first world countries when it comes to guns and gun laws.  With this dataset,
+introstring1 = "Gun Violence and gun control have been topics of heated debate for a long time, now.  America is a minority in the group of first world countries when it comes to guns and gun laws.  With this dataset,
 I hope to investigate the effectiveness of gun laws, and relationships--if any--between population demographics and the
 frequency of gun-related incidents."
+
+# introstring2 = "Map -- The map allows you to geographically visualize the number of incidents per state population.
+#                 Correlation -- Here, you may select from a few statisitics which are aggregated by state and see a correlation plot between them.
+#                 Mass Shooting Stats -- From a separate dataset consisting of mass shooting incidents, you may see how certain demographics have changed from 2013 to 2017.
+#                 Data -- There are two perusable data tables which were used to construct this app.
+#                 Bio -- There is some contact info here and a link to the author's github repository."
+introstringMap = "Map -- The map allows you to geographically visualize the number of incidents per state population."
+introstringCorr = "Correlation -- Here, you may select from a few statisitics which are aggregated by state and see a correlation plot between them."
+introstringMass = "Mass Shooting Stats -- From a separate dataset consisting of mass shooting incidents, you may see how certain demographics have changed from 2013 to 2017."
+introstringData = "Data -- There are two perusable data tables which were used to construct this app."
+
+corrstring = "Choose two stats to correlate.  Each blue dot represents a state.  Presidential nominees indicate the percentage of votes per state."
 
