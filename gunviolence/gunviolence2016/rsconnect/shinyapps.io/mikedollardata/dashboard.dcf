@@ -1,0 +1,10 @@
+name: dashboard
+title:
+username:
+account: mikedollardata
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 997879
+bundleId: 2190258
+url: https://mikedollardata.shinyapps.io/dashboard/
+when: 1561960222.64673
